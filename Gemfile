@@ -33,6 +33,7 @@ gem 'sqlite3'
   gem 'will_paginate', '3.0.pre2' #Pagination
   gem 'compass'
   gem 'aasm'
+  gem 'simple_form'
 
   #Fixes stylesheet caching issue with scss and Heroku
   group :production do

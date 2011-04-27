@@ -2,3 +2,6 @@
   - @events.each do |event| 
     %li
       %h2= event.time.strftime("%D")
+
+%ul
+  %li= link_to "New Group", new_group_path

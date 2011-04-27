@@ -1,0 +1,7 @@
+%h2= @group.name
+%p= link_to "Visit Meetup Site", @group.link
+=image_tag @group.photo_url, :class => "group-img"
+%p== Organizer: #{@group.organizer_name}
+%p= @group.description
+
+= link_to "View All Meetups", groups_url

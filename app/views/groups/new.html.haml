@@ -1,0 +1,6 @@
+%h2 New Group
+%p Use the form below to track a new meetup group
+= simple_form_for @group do |f| 
+  
+  = f.input :group_urlname, :label => "Group URI", :as => :string, :placeholder => "your-uri-here"
+  = f.button :submit, "Create Group"
