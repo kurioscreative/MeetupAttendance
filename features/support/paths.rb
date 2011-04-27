@@ -11,6 +11,8 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
 
+    when /the group page for "(.+)"/
+      group_path(Group.find_by_group_urlname($1))
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
