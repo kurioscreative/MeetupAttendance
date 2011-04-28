@@ -1,7 +1,10 @@
 MeetupAttendance::Application.routes.draw do
   root :to => "pages#home"
   
-  resources :groups
+  resources :groups do 
+    resources :events, :only => :index
+  end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

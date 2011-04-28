@@ -10,7 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110427143149) do
+ActiveRecord::Schema.define(:version => 20110428203442) do
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.integer  "meetup_id"
+    t.integer  "group_id"
+    t.string   "status"
+    t.string   "event_url"
+    t.text     "description"
+    t.datetime "time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["group_id"], :name => "index_events_on_group_id"
+  add_index "events", ["meetup_id"], :name => "index_events_on_meetup_id", :unique => true
 
   create_table "groups", :force => true do |t|
     t.integer  "meetup_id"

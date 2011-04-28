@@ -1,0 +1,20 @@
+%h2== #{link_to @group.name, group_path(@group)}'s Upcoming Meetups
+
+%h3 Untracked Meetups
+%table
+  %tr
+    %th Date
+    %th Name
+    %th
+  - @meetup_events.each do |event|
+    %tr
+      %td= event.time.strftime('%D')
+      %td= event.name
+      %td= link_to "Track"
+      %td= link_to "Website", event.event_url
+    
+-content_for :sidebar do
+  %h3 Already Tracking
+  %ul.sidebar-events
+    - 5.times do
+      %li= link_to "#{Date.today.strftime("%D")} - Ruby Nuby Reboots"
