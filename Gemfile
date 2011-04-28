@@ -59,4 +59,5 @@ end
     gem "cucumber-rails", ">= 0.3.2"
     gem "shoulda-matchers"
     gem "database_cleaner", "0.6.7.RC"
+	gem 'spork', '0.9.0.rc5'
   end
