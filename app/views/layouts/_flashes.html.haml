@@ -1,0 +1,10 @@
+#flash_container
+  -if flash[:notice]
+    .flash
+      %p.success
+        = flash[:notice]
+
+  -if flash[:error]
+    .flash
+      %p.error
+        = flash[:error]

@@ -1,0 +1,18 @@
+!!! 5
+
+= render :partial => 'layouts/head'
+%body{ :lang => 'en', :class => "bp two-col #{controller.controller_name}" }
+
+  #container
+    = render :partial => 'layouts/header'
+    #content
+      = render :partial => 'layouts/flashes'
+      #breadcrumbs= crumbs
+      = yield
+    #sidebar
+      =yield(:sidebar)
+    %br.clear
+    %footer
+      .footer
+        = render :partial => 'layouts/footer'
+      = render :partial => 'layouts/javascripts'

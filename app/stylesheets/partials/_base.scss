@@ -8,3 +8,23 @@ $blueprint-grid-margin: 10px;
 // Use this to calculate the width based on the total width.
 // Or you can set $blueprint-grid-width to a fixed value and unset $blueprint-container-size -- it will be calculated for you.
 $blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
+
+$header-color:#719981;
+
+// Definitive Web Font Stack
+// http://www.smashingmagazine.com/2009/09/22/complete-guide-to-css-font-stacks/
+$blueprint-font-family: Corbel, ‘Lucida Grande’, ‘Lucida Sans Unicode’, ‘DejaVu Sans’, ‘Bitstream Vera Sans’, ‘Liberation Sans’, Verdana, ‘Verdana Ref’, sans-serif;
+
+$blueprint-font-size: 12px;
+$font-color:#333;
+
+$link-color: #484B4C;
+$link-hover-color: #E57E35;
+$link-visited-color: #484B4C;
+
+//Kuler Color Swatch
+// 333030 - Black
+// 484B4C - Gray
+// 719981 - Green
+// F2E285 - Yellow
+// E57E35 - Orange
