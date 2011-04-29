@@ -4,4 +4,4 @@
 %p== Organizer: #{@group.organizer_name}
 %p= @group.description
 
-= link_to "View All Meetups", groups_url
+= link_to "View All Meetups", group_events_url(@group)

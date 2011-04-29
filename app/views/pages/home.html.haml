@@ -1,7 +1,6 @@
-%ul
-  - @events.each do |event| 
-    %li
-      %h2= event.time.strftime("%D")
-
-%ul
-  %li= link_to "New Group", new_group_path
+- if @groups.blank?
+  %p== You do not currently have any groups to track. Please #{link_to "add a new group", new_group_path}.
+- else
+  %ul
+    - @groups.each do |group|
+      %li= link_to group.name, group_path(group)

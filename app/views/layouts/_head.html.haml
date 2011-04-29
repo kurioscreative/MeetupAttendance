@@ -1,0 +1,25 @@
+%head
+  %meta{ :charset => "utf-8" }/
+  %meta{ :content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible" }/
+  
+  %title
+    = content_for?(:title) ? content_for(:title) : "Meetup Attendance"
+    
+  %meta{ :content => "A basic app for keeping track of attendance at Meetup events ", :name => "description" }/
+  %meta{ :content => "meetup, attendance, roster, checkin, app, member, rsvp", :name => "keywords"}
+  %meta{ :property => "og:site_name", :content => "Meetup Attendance" }
+
+  
+  = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Arimo:regular,italic,bold'
+  %meta{ :content => "width=device-width, initial-scale=1.0", :name => "viewport" }/
+  
+  
+  = render :partial => 'layouts/stylesheets'
+  
+  -# JavaScript at the bottom
+  
+  = csrf_meta_tag
+  = render :partial => 'layouts/analytics'
+  
+  = yield(:head)
+  

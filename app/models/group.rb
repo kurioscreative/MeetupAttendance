@@ -18,7 +18,9 @@
 #
 
 class Group < ActiveRecord::Base
-
+  
+  has_many :events
+  
   validate :group_urlname, :presence => true
   validate :name, :presence => true
   validate :meetup_id, :presence => true
