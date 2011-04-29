@@ -2,7 +2,7 @@ MeetupAttendance::Application.routes.draw do
   root :to => "pages#home"
   
   resources :groups do 
-    resources :events, :only => :index
+    resources :events, :only => [:index, :create, :show]
   end
 
 

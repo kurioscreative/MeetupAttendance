@@ -1,0 +1,25 @@
+%h2
+  == #{link_to @group.name, group_events_path(@group)}'s Meetup
+
+%h3 RSVP's
+%table
+  %tr
+    %th Picture
+    %th Name
+    %th Status
+    %th 
+  - @rsvps.each do |rsvp| 
+    %tr
+      %td= image_tag rsvp.photo_url, :width => 75
+      %td
+        %strong= link_to rsvp.name, rsvp.link
+        %p= rsvp.comment
+      %td{:class => rsvp.respone}= rsvp.response.humanize
+      %td= link_to "Checkin"
+%h3 Present
+%h3 Absent
+
+-content_for :sidebar do
+  %p== <strong>Event Name:</strong> #{@event.name}
+  = link_to "Visit Website", @event.event_url
+  = simple_format(@event.description)

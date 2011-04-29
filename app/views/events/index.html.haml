@@ -1,20 +1,26 @@
 %h2== #{link_to @group.name, group_path(@group)}'s Upcoming Meetups
 
 %h3 Untracked Meetups
-%table
-  %tr
-    %th Date
-    %th Name
-    %th
-  - @meetup_events.each do |event|
+-if @meetup_events.blank?
+  %p You currently have no upcoming meetup events than can be tracked.
+- else
+  %table
     %tr
-      %td= event.time.strftime('%D')
-      %td= event.name
-      %td= link_to "Track"
-      %td= link_to "Website", event.event_url
+      %th Date
+      %th Name
+      %th
+    - @meetup_events.each do |event|
+      %tr
+        %td= event.time.strftime('%D')
+        %td= event.name
+        %td
+          = simple_form_for :event, :url => group_events_url, :method => :post, :html => {:id => event.id} do |f|
+            = f.hidden_field :meetup_id, :value => event.id
+            = f.submit "Track"
+        %td= link_to "Website", event.event_url
     
 -content_for :sidebar do
   %h3 Already Tracking
   %ul.sidebar-events
-    - 5.times do
-      %li= link_to "#{Date.today.strftime("%D")} - Ruby Nuby Reboots"
+    - @events.each do |event|
+      %li= link_to "#{event.time.strftime('%D')} - #{truncate(event.name, :length => 30)}", group_event_path(@group, event)
