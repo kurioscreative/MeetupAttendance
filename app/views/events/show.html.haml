@@ -15,7 +15,11 @@
         %strong= link_to rsvp.name, rsvp.link
         %p= rsvp.comment
       %td{:class => rsvp.respone}= rsvp.response.humanize
-      %td= link_to "Checkin"
+      %td
+        = simple_form_for :meetup_rsvp, :url => rsvps_path do |f|
+          = f.hidden_field :meetup_id, :value => rsvp.id
+          = f.hidden_field :member_id, :value => rsvp.member_id
+          = f.submit "Check-In"
 %h3 Present
 %h3 Absent
 
