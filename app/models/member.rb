@@ -18,6 +18,7 @@
 class Member < ActiveRecord::Base
   has_many :member_rsvps
   before_create :fetch_from_meetup
+
   
 private
   def fetch_from_meetup
