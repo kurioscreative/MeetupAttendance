@@ -3,14 +3,15 @@
 #
 # Table name: member_rsvps
 #
-#  id           :integer         not null, primary key
-#  member_id    :integer
-#  response     :string(255)
-#  meetup_id    :integer
-#  rsvp_updated :datetime
-#  event_id     :integer
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id               :integer         not null, primary key
+#  member_id        :integer
+#  response         :string(255)
+#  meetup_id        :integer
+#  meetup_member_id :integer
+#  rsvp_updated     :datetime
+#  event_id         :integer
+#  created_at       :datetime
+#  updated_at       :datetime
 #
 
 class MemberRsvp < ActiveRecord::Base
@@ -19,15 +20,15 @@ class MemberRsvp < ActiveRecord::Base
   after_create :create_member
   
   def create_member
-    begin
+    if
       find_member
-    rescue
-      Member.create!(:meetup_id => meetup_id)
+    else
+      Member.create!(:meetup_id => meetup_member_id)
     end
   end
   
   def find_member
-    Member.find_by_meetup_id(meetup_member_id)
+    member = Member.find_by_meetup_id(meetup_member_id)
   end
   
 end
