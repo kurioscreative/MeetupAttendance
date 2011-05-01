@@ -5,6 +5,9 @@ MeetupAttendance::Application.routes.draw do
     resources :events, :only => [:index, :create, :show]
   end
 
+  resources :members, :only => [:index, :show, :create, :update] do
+    resources :rsvps, :only => :create, :controller => "member_rsvps"
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

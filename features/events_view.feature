@@ -11,7 +11,7 @@ Background: Upcoming Events
     | 23        | "Ruby Reboot Week 2" | "upcoming" | "Lorem ipsum" | 1404375400000 |
     | 35        | "Ruby Reboot Week 3" | "upcoming" | "Lorem ipsum" | 1404375400000 |
 
-@wip
+
 Scenario: View upcoming meetups
   Given I have a group named "ruby-nuby-info"
   And I am on the group page for "ruby-nuby-info"

@@ -7,8 +7,7 @@ class EventsController < ApplicationController
           :after => "-1d"
         })
     @events ||= Event.all    
-    @meetup_events = fetched_events.keep_if {|event| event.id == @events.collect(&:meetup_id)}
-
+    @meetup_events = fetched_events.keep_if {|event| event.id != @events.collect(&:meetup_id)}
   end
 
   def create

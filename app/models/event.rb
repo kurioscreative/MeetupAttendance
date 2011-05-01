@@ -17,9 +17,7 @@
 
 class Event < ActiveRecord::Base
   belongs_to :group
-
   validates_uniqueness_of :meetup_id
-  
   before_create :fetch_from_meetup
   
   

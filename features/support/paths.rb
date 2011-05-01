@@ -13,6 +13,9 @@ module NavigationHelpers
 
     when /the group page for "(.+)"/
       group_path(Group.find_by_group_urlname($1))
+    
+    when /the event page/
+      group_event_path(Factory(:group), Factory(:event))
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
