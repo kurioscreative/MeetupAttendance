@@ -27,11 +27,15 @@ class EventsController < ApplicationController
   
 
   def show
-    @event = Event.find(params[:id])
     @group = Group.find(params[:group_id])
-    @member_ids = MemberRsvp.all.collect{|x|x.meetup_id.to_i}
-    @rsvps = RMeetup::Client.fetch(:rsvps, {:event_id => @event.meetup_id}).keep_if { |x| x.id.to_i == @member_ids }
-    @members = MemberRsvp.scoped_by_event_id(@event.id).all
+    @event = Event.find(params[:id])
+    fetched_rsvps ||= RMeetup::Client.fetch(:rsvps, {:event_id => @event.meetup_id})
+    
+    @members = MemberRsvp.all
+    tracked_member_ids = @members.collect { |x| x.meetup_id }
+    
+    @rsvps = fetched_rsvps.select { |x| x unless tracked_member_ids.include?(x.id)}
+    
     
     # Get a list of all RMeetup:RSVPS from meetup and remove RMeetup:Rsvps whose id matches an existing MemberRsvp's id
   end
