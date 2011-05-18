@@ -21,7 +21,9 @@
           = f.hidden_field :meetup_member_id, :value => rsvp.member_id
           = f.submit "Check-In"
 %h3 Present
-
+%ul
+  - @members.each do |rsvp| 
+    %li=rsvp.id
 %h3 Absent
 
 -content_for :sidebar do
